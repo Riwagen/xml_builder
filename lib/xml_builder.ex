@@ -190,8 +190,8 @@ defmodule XmlBuilder do
       "<name>\\n  <first>Steve</first>\\n</name>"
   """
   def generate(any, options \\ []),
-    #do: format(any, 0, options) |> IO.chardata_to_string
-    do: IO.inspect any
+    do: format(any, 0, options) |> IO.chardata_to_string
+    
   defp format(:xml_decl, 0, _options),
     do: ~s|<?xml version="1.0" encoding="UTF-8"?>|
 
