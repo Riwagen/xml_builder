@@ -1,6 +1,5 @@
 defmodule XmlBuilder.Format.Indented do
   def indentation(level, options) do
-    IO.inspect options
     whitespace = Keyword.get(options, :whitespace, "")
 
     String.duplicate(whitespace, level)
