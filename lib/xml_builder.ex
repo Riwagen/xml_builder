@@ -227,11 +227,11 @@ defmodule XmlBuilder do
   end
 
   defp format({name, attrs, content}, level, options) when not is_blank_attrs(attrs) and not is_list(content),
-    do: [indent(level, options), '<', to_string(name), ' ', format_attributes(attrs), '>', format_content(content, level+1, options), '</', to_string(name), '>\n']
+    do: [indent(level, options), '<', to_string(name), ' ', format_attributes(attrs), '>', format_content(content, level+1, options), '</', to_string(name), '>']
 
   defp format({name, attrs, content}, level, options) when not is_blank_attrs(attrs) and is_list(content) do
     format_char = formatter(options).line_break()
-    [indent(level, options), '<', to_string(name), ' ', format_attributes(attrs), '>', format_content(content, level+1, options), format_char, indent(level, options), '</', to_string(name), '>\n']
+    [indent(level, options), '<', to_string(name), ' ', format_attributes(attrs), '>', format_content(content, level+1, options), format_char, indent(level, options), '</', to_string(name), '>']
   end
 
   defp elements_with_prolog([first | rest]) when length(rest) > 0,
